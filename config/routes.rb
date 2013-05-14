@@ -60,5 +60,6 @@ Forum::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
   match '/validate_login' => 'users#validate_login' , :as => 'validate_login'
+  match '/signup' => 'users#signup' , :as => 'signup'
   match 'auth/google_oauth2/callback' => 'users#auth2callback'
 end

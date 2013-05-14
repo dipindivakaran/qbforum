@@ -1,13 +1,7 @@
 class UsersController < ApplicationController
  
   def signup
-    @user = User.new(@params[:user])
-    if request.post?
-      if user.save?
-        session[:user] = User.authenticate(@user.email_id,@user.password)
-        redirect_to :action=>'home'
-       end
-    end
+    @user = User.new
   end
 
   def login
@@ -37,7 +31,7 @@ class UsersController < ApplicationController
  def auth2callback
    auth_param = request.env["omniauth.auth"]
    if (session[:user]= auth_param.extra.raw_info.email)
-    redirect_to :controller=>'projects' , :action=>'home'
+    redirect_to  :action=>'home'
     else
         flash[:message] = "Invalid username/password"
     redirect_to :action=>'login'
