@@ -1,8 +1,12 @@
+ <div class="container">
+ 	
+	<legend>Login</legend>
+	
+	 
+	<div class="well">
+   
 <div id="page-wrap">
-
-<fieldset id="login">
 	<div id="error"><%=flash[:message]%></div>
-   <legend>Login</legend>
    <%= form_for (@user),:url => {:action =>:validate_login, :method => "post" },:html=>{:class=>'form-signin'} do |f|%>  
       	 <div class="text-wrap"><%= f.text_field :email_id ,:id => 'input-box',:placeholder=>"Email"%></div>
    	 <div class="text-wrap"><%=f.password_field :password ,:id => 'input-box',:placeholder=>"Password"%></div>
@@ -10,9 +14,11 @@
     <% end %>
     
     <div id="links">
-     <%= link_to "Login with google","/auth/google_oauth2" %>
-      <%= link_to "Signup","/signup" %>
+       <%= link_to "Login with google","/auth/google_oauth2" %>
+       <%= link_to "Signup","/signup" %>
     </div>
-  </fieldset>
+</div>
 
+
+</div>
 </div>

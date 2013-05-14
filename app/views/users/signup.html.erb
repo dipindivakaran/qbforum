@@ -1,1 +1,66 @@
-This is signup page
+ <div class="container">
+	<legend>Sign Up</legend>
+	<div class="well">
+		<%= form_for (@user),:url => {:action =>:validate_signup, :method => "post" },:html=>{:class=>'form-horizontal',:id=>'signup'} do |f|%>  
+	        <div class="control-group">
+	            <label class="control-label">First Name</label>
+	            <div class="controls">
+	                <div class="input-prepend">
+	                	<%= f.text_field :first_name ,:id => 'fname',:placeholder=>"First Name",:class=>'input-xlarge'%>
+	                </div>
+	            </div>	        </div>
+	        <div class="control-group ">
+	            <label class="control-label">Last Name</label>
+	            <div class="controls">
+	                <div class="input-prepend">
+	                	<%= f.text_field :last_name ,:id => 'lname',:placeholder=>"Last Name",:class=>'input-xlarge'%>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="control-group">
+	            <label class="control-label">Email</label>
+	            <div class="controls">
+	                <div class="input-prepend">
+	                	<%= f.text_field :email_id ,:id => 'email',:placeholder=>"Email",:class=>'input-xlarge'%>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="control-group">
+	            <label class="control-label">Gender</label>
+	            <div class="controls">
+	 
+	                    <p><div id="gender" name="gender" class="btn-group" data-toggle="buttons-radio">
+	                    <button type="button" class="btn btn-info">Male</button>
+	                    <button type="button" class="btn btn-info">Female</button>
+	 
+	                  </div></p>
+	            </div>
+	        </div>
+	        <div class="control-group">
+	            <label class="control-label">Password</label>
+	            <div class="controls">
+	                <div class="input-prepend">
+	                	<%= f.password_field :password ,:id => 'passwd',:placeholder=>"Password",:class=>'input-xlarge'%>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="control-group">
+	            <label class="control-label">Confirm Password</label>
+	            <div class="controls">
+	                <div class="input-prepend">
+	                	<%= f.password_field :password_confirmation ,:id => 'conpasswd',:placeholder=>"Re-enter Password",:class=>'input-xlarge'%>
+	                </div>
+	            </div>
+	        </div>
+	 
+	        <div class="control-group">
+	        <label class="control-label"></label>
+	          <div class="controls">
+	           <button type="submit" class="btn btn-success" >Create My Account</button>
+	          	 <%= link_to "<<Back",login_url %>
+	          </div>
+	    </div>
+	 
+	     <%end%>
+	 
+	   </div>

@@ -8,6 +8,16 @@ class UsersController < ApplicationController
    @user = User.new
   end
   
+  def validate_signup
+    @user = User.new(@params[:user])
+    if request.post?
+      if user.save?
+        session[:user] = User.authenticate(@user.email_id,@user.password)
+        redirect_to :action=>'home'
+       end
+    end
+  end
+  
   def validate_login
     if request.post?
       if (session[:user]=User.authenticate(params[:user][:email_id],params[:user][:password]))
